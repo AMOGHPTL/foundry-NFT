@@ -14,10 +14,7 @@ contract MintBasicNft is Script {
 
         if (block.chainid == 31337) {
             // Local Anvil → safe to read broadcast folder
-            nftAddress = DevOpsTools.get_most_recent_deployment(
-                "BasicNft",
-                block.chainid
-            );
+            nftAddress = DevOpsTools.get_most_recent_deployment("BasicNft", block.chainid);
         } else {
             // Live networks → must pass contract address manually
             nftAddress = vm.envAddress("BASIC_NFT");
